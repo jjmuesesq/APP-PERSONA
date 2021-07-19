@@ -44,6 +44,19 @@ rutas.post('/', (req, res)=>{
     })
 })
 
+//agregar persona con solo 3 parametros
+rutas.post('/persona', (req, res)=>{
+    const {nombre, nacimiento, identificacion} = req.body
+
+    let sql = `insert into tb_persona (nombre, nacimiento, identificacion) values('${nombre}', '${nacimiento}', '${identificacion}')`
+    conexion.query(sql, (err, rows, fields)=>{
+        if(err) throw err;
+        else{
+            res.json({status: 'persona agregada'})
+        }
+    })
+})
+
 //eliminar persona
 rutas.delete('/:id', (req, res)=>{
     const {id} = req.params
@@ -77,6 +90,21 @@ rutas.put('/:id', (req, res)=>{
     })
 })
 
+// modificar pariente 1 y pariente 2 de persona utilizando la identificacion
+rutas.put('/parientes/:identidad', (req, res)=>{
+    const {identidad} = req.params
+    const {pariente1, pariente2} = req.body
+    let sql = `update tb_persona set 
+                pariente1 = '${pariente1}', 
+                pariente2 = '${pariente2}'                   
+                where identificacion = '${identidad}'` 
+    conexion.query(sql, (err, rows, fields)=>{
+        if(err) throw err;
+        else{
+            res.json({status: 'Se ha actualizado la persona'})
+        }
+    })
+})
 
 //--------------------------------------------------------
 
