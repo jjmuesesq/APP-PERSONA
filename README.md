@@ -5,17 +5,17 @@ API REST PERSONA
 
 instalacion de NodeJs y configuracion de dependencias en PATH npm
 
-##creacion de archivo json en index.js
+## creacion de archivo json en index.js
 ```bash
 npm init -y
 ```
 
-##instalacion de dependecias de desarrollo nodemon
+## instalacion de dependecias de desarrollo nodemon
 ```bash
 npm install --save-dev nodemon
 ```
 
-##configuracion nodemon para ejecutar index.js en package.json
+## configuracion nodemon para ejecutar index.js en package.json
 ```javascript
   "scripts": {
     "dev": "nodemon/index.js",
@@ -23,18 +23,18 @@ npm install --save-dev nodemon
   },
 ```
 
-##ejecutar el servidor
+## ejecutar el servidor
 ```bash
 npm run dev
 ```
 finalizar servidor con ctrl c
 
-##instalacion del framework express y conexion a Mysql
+## instalacion del framework express y conexion a Mysql
 ```bash
 npm install express mysql
 ```
 
-##creacion directorio config para la conexion a base de datos
+## creacion directorio config para la conexion a base de datos
 
 conexion.js script que implementa la conexion a mysql
 ```javascript
@@ -59,18 +59,20 @@ conexion.connect((err)=>{
 module.exports = conexion;
 ```
 
-#2. CRUD 
+# 2. CRUD 
 
 Determinacion de rutas para acceder a base de datos por las peticiones del usuario
 
-terminacion de confguracion del servidor en index.js, determinacion de rutas y puerto 
+terminacion de confguracion del servidor en index.js
 
-##GET
+## GET
 
 http://localhost:3000/api
 
-##POST
+## POST
+
 http://localhost:3000/api
 
-##PUT
+## PUT
+
 http://localhost:3000/api/2
